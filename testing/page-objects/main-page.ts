@@ -18,4 +18,9 @@ export class MainPage {
     get getVerifyStudentCNPSection() { return browser.element("app-profile app-add-student .form-group"); }
     get getVerifyStudentVerifyButton() { return browser.element("app-profile app-add-student .btn.btn-primary"); }
     get getVerifyEmployeeSection() { return browser.element("app-profile app-add-employee .col-md-6"); }
+    get getStudentDataSection() { return browser.element("app-profile app-student-details .col-md-6"); }
+
+    get getCaminNumber() { return browser.element("app-student-details .box-body p:nth-child(5)"); }
+    get getCameraNumber() { return browser.element("app-student-details .box-body p:nth-child(8)"); }
+    get getNumeElement() { return browser.element("app-student-details .box-body p:nth-child(11)"); }
 }
