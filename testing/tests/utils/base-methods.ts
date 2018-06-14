@@ -2,7 +2,7 @@ import {LoginPage} from "../../../testing/page-objects/login-page";
 
 export class BaseMethods {
 
-    static login(username: string, password: string) {
+    static login(username: string, password: string) : void {
         var loginPage = new LoginPage();
         loginPage.goToHomepage();
         loginPage.getLoginForm.waitForVisible(5000);

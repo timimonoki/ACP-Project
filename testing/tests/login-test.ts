@@ -6,13 +6,11 @@ import {BaseMethods} from "../tests/utils/base-methods";
 describe('Login Page - ', function () {
     let loginPage;
     let mainPage;
-    let baseMethods;
 
     beforeEach(function () {
         browser.windowHandleMaximize();
         loginPage = new LoginPage();
         mainPage = new MainPage();
-        baseMethods = new BaseMethods();
     });
 
     it('test that login page opens at first access', function() {
@@ -24,7 +22,7 @@ describe('Login Page - ', function () {
 
 
     it('test login with inexistent(automatically generated, not validated) account', function() {
-        baseMethods.login(LoginConstants.EXISTENT_EMAIL, LoginConstants.INEXISTENT_EMAIL_PASSWORD);
+        BaseMethods.login(LoginConstants.EXISTENT_EMAIL, LoginConstants.EXISTENT_PASSWORD);
         mainPage.getUserGeneralDetailsSection.waitForVisible(5000);
 
         expect(mainPage.getUserGeneralDetailsSection.isVisible).toBeTruthy("Sectiunea -Despre Mine- nu este afisata");
@@ -37,7 +35,15 @@ describe('Login Page - ', function () {
     });
 
     it('test login with an incorrect user and password', function() {
-        baseMethods.login(LoginConstants.INCORREXT_EMAIL, LoginConstants.INCORRECT_EMAIL_PASSWORD);
+        BaseMethods.login(LoginConstants.INCORREXT_EMAIL, LoginConstants.INCORRECT_EMAIL_PASSWORD);
         expect(loginPage.getErrorMessageAlert.isVisible).toBeTruthy("Mesajul de eroare nu a aparut");
+    });
+
+    it("test logout from the app", function () {
+        BaseMethods.login(LoginConstants.EXISTENT_EMAIL, LoginConstants.EXISTENT_PASSWORD);
+        mainPage.getUserGeneralDetailsSection.waitForVisible(5000);
+        mainPage.getAccountMenu.click();
+        mainPage.getSignOutButton.click();
+        loginPage.getLoginForm.waitForVisible(5000);
     });
 });

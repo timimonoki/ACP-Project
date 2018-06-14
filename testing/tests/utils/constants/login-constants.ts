@@ -10,6 +10,9 @@ export class LoginConstants {
     public static EXISTENT_PASSWORD: string = "ParolaDeTest";
 
     public static CAMIN_NUMBER = 4;
-    public static CAMERA_NUMBER = 9;
+    public static CAMERA_NUMBER : string = '9';
     public static NUME = "Monoki Timea";
+
+    public static WASHINGMACHINE_URL_PART = "/washingmachine";
+    public static REPARATIONS_URL_PART = "/repairs-management";
 }

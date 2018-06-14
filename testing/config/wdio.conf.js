@@ -9,14 +9,17 @@ exports.config = {
     // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
-    specs: ["testing/tests/login-test.ts"],
+    specs: [
+        "testing/tests/login-test.ts",
+        // "testing/tests/main-action-tests.ts",
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
 
-    host: '127.0.0.1',
-    port: 4444,
+//    host: '127.0.0.1',
+//    port: 4444,
     //
     // ============
     // Capabilities
