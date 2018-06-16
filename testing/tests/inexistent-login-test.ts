@@ -14,15 +14,15 @@ describe('Login Page - ', function () {
     });
 
     it('test login with inexistent(automatically generated, not validated) account', function() {
-        BaseMethods.login(LoginConstants.EXISTENT_EMAIL, LoginConstants.EXISTENT_PASSWORD);
+        BaseMethods.login(LoginConstants.INEXISTENT_EMAIL, LoginConstants.INEXISTENT_EMAIL_PASSWORD);
         mainPage.getUserGeneralDetailsSection.waitForVisible(5000);
 
-        expect(mainPage.getUserGeneralDetailsSection.isVisible).toBeTruthy("Sectiunea -Despre Mine- nu este afisata");
-        expect(mainPage.getVerifyStudentSection.isVisible).toBeTruthy("Sectiunea -Verificare Student- nu este afisata");
-        expect(mainPage.getVerifyStudentCNPSection.isVisible).toBeTruthy("Sectiunea de introducere CNP nu este afisata");
-        expect(mainPage.getVerifyEmployeeSection.isVisible).toBeTruthy("Sectiunea -VerificareAngajat- nu este afisata");
-        expect(mainPage.getAccountGeneralDetailsSection.isVisible).toBeTruthy("Sectiunea informatii cont nu este afisata");
-        expect(mainPage.getEditAccountButton.isVisible).toBeTruthy("Edit Account button nu este afisat");
-        expect(mainPage.getDeleteAccount.isVisible).toBeTruthy("Delete Account button nu este afisat");
+        expect(mainPage.getUserGeneralDetailsSection.isVisible()).toBe(true,"Sectiunea -Despre Mine- nu este afisata");
+        expect(mainPage.getVerifyStudentSection.isVisible()).toBe(true,"Sectiunea -Verificare Student- nu este afisata");
+        expect(mainPage.getVerifyStudentCNPSection.isVisible()).toBe(true,"Sectiunea de introducere CNP nu este afisata");
+        expect(mainPage.getVerifyEmployeeSection.isVisible()).toBe(true,"Sectiunea -VerificareAngajat- nu este afisata");
+        expect(mainPage.getAccountGeneralDetailsSection.isVisible()).toBe(true,"Sectiunea informatii cont nu este afisata");
+        expect(mainPage.getEditAccountButton.isVisible()).toBe(true,"Edit Account button nu este afisat");
+        expect(mainPage.getDeleteAccount.isVisible()).toBe(true,"Delete Account button nu este afisat");
     });
 });
