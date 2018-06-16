@@ -8,7 +8,6 @@ describe("Main action tests - ", function () {
     beforeEach(function () {
         browser.windowHandleMaximize();
         mainPage = new MainPage();
-
     });
 
     it("verify if the correct page elements appear after login with a correct account", function () {
@@ -20,7 +19,7 @@ describe("Main action tests - ", function () {
         expect(mainPage.getStudentDataSection.isVisible()).toBe(true, "Sectiunea -Date Student- nu este afisata");
         expect(mainPage.getVerifyEmployeeSection.isVisible()).toBe(true,"Sectiunea -Verificare Angajat- nu este afisata");
 
-        // expect(mainPage.getCaminNumber.getText()).toEqual(LoginConstants.CAMIN_NUMBER, "Numarul caminului este incorect");
+        expect(mainPage.getCaminNumber.getText()).toEqual(LoginConstants.CAMIN_NUMBER, "Numarul caminului este incorect");
         expect(mainPage.getCameraNumber.getText()).toEqual(LoginConstants.CAMERA_NUMBER, "Numarul camerei este incorecta");
         expect(mainPage.getNumeElement.getText()).toEqual(LoginConstants.NUME, "Numele nu este corect");
         expect(mainPage.getProgramariSpalatorieLink.isVisible()).toBe(true, "Link-ul -Programari Spalatorie- nu este afisat");
@@ -29,23 +28,5 @@ describe("Main action tests - ", function () {
         expect(mainPage.getAccountGeneralDetailsSection.isVisible()).toBe(true,"Sectiunea informatii cont nu este afisata");
         expect(mainPage.getEditAccountButton.isVisible()).toBe(true,"Edit Account button nu este afisat");
         expect(mainPage.getDeleteAccount.isVisible()).toBe(true,"Delete Account button nu este afisat");
-    });
-
-    it("verify if clicking on -Programari Spalatorie- the right timetable opens", function () {
-        // mainPage.getUserGeneralDetailsSection.waitForVisible(5000);
-        mainPage.getProgramariSpalatorieLink.click();
-        mainPage.getWashingMachineHeader.waitForVisible(5000);
-        var currentUrl = browser.getUrl();
-        expect(currentUrl).toContain(LoginConstants.WASHINGMACHINE_URL_PART);
-        expect(mainPage.getDateOnTimetable.isVisible()).toBe(true, "Data nu este afisata");
-        expect(mainPage.getTimetable.isVisible()).toBe(true, "Tabela pe sapatamana curenta nu este afisata");
-    });
-
-    it("verify if clicking  on -Reparatii- the correct page opens", function () {
-        // mainPage.getUserGeneralDetailsSection.waitForVisible(5000);
-        mainPage.getReparatiiLink.click();
-        mainPage.getReparationsHeader.waitForVisible(5000);
-        var currentUrl = browser.getUrl();
-        expect(currentUrl).toContain(LoginConstants.REPARATIONS_URL_PART);
     });
 });
